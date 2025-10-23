@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { LearningCategory } from '../types';
 
@@ -9,8 +8,6 @@ const API_KEY = process.env.API_KEY;
 if (!API_KEY) {
   console.warn("Gemini API key not found. Using dummy data. Please set the API_KEY environment variable.");
 }
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
 
 const generateDummyPath = (): LearningCategory => {
     return {
@@ -39,6 +36,9 @@ export const generateLearningPathFromJD = async (jobDescription: string): Promis
     }
 
     try {
+        // Initialize the client here, only when we have a confirmed API key.
+        const ai = new GoogleGenAI({ apiKey: API_KEY });
+
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: `Analyze the following job description and generate a structured learning path for a student preparing for this role. Group the topics into relevant categories like "Data Structures & Algorithms", "Backend Development", "Frontend Development", "Cloud & DevOps", "Aptitude", "Core CS Concepts", etc. The output must be a JSON object where keys are the categories and values are arrays of topic strings.
