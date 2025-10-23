@@ -2,6 +2,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { LearningCategory } from '../types';
 
+// NOTE: Reverted to the original API_KEY for the development environment.
+// For Next.js deployment, this should be `process.env.NEXT_PUBLIC_API_KEY`.
 const API_KEY = process.env.API_KEY;
 
 if (!API_KEY) {
