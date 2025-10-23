@@ -1,0 +1,5 @@
+{
+  "name": "SmartLMS: AI-Powered Learning Paths",
+  "description": "A web application that uses AI to generate personalized learning paths from job descriptions. It provides separate dashboards for Admins to create and assign paths, and for Students to view and track their learning progress.",
+  "requestFramePermissions": []
+}
